@@ -6,14 +6,15 @@
 		<script type="text/html" id="tpl">
 			<% for(var i = 0; i < 10; i++){ %>
 			<%= bar%>
+			<hr />
 			<% } %>
 		</script>
 
-		<!-- <div id="tpl">
+		<!--<div id="tpl">
 			<% for(var i = 0; i < 10; i++){ %>
 			<%= bar%>
 			<% } %>
-		</div> -->
+		</div>-->
 	</body>
 	<script type="text/javascript" src="tpl.js"></script>
 	<script type="text/javascript" src="events.js"></script>
@@ -41,10 +42,11 @@
 			bar: 'i am bar'
 		})
 		var ele = document.getElementById('tpl'),
+			tpl = tmpl('tpl'),
 			parent = ele.parentNode;
-		parent.innerHTML = tmpl('tpl', foo);
+		parent.innerHTML = tpl(foo);
 		on('reflash', function(){
-			parent.innerHTML = tmpl('tpl', foo);
+			parent.innerHTML = tpl(foo);
 		})
 	</script>
 </html>
